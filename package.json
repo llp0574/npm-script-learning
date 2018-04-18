@@ -4,7 +4,11 @@
   "description": "Learn to use npm script for efficient workflow",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "lint:json": "jsonlint --quiet *.json",
+    "lint:markdown": "markdownlint --config .markdownlint.json *.md",
+    "test": "npm run lint:js && npm run lint:css && npm run lint:json && npm run lint:markdown && mocha tests/"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/llp0574/npm-script-learning/issues"
   },
-  "homepage": "https://github.com/llp0574/npm-script-learning#readme"
+  "homepage": "https://github.com/llp0574/npm-script-learning#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "jsonlint": "^1.6.3",
+    "markdownlint-cli": "^0.8.1",
+    "mocha": "^5.1.0",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0"
+  }
 }
