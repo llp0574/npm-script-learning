@@ -8,7 +8,11 @@
     "lint:css": "stylelint *.less",
     "lint:json": "jsonlint --quiet *.json",
     "lint:markdown": "markdownlint --config .markdownlint.json *.md",
-    "test": "npm run lint:js && npm run lint:css && npm run lint:json && npm run lint:markdown && mocha tests/"
+    "mocha": "mocha tests/",
+    "test": "npm run lint:js && npm run lint:css && npm run lint:json && npm run lint:markdown && mocha tests/",
+    "parallel-test": "npm run lint:js & npm run lint:css & npm run lint:json & npm run lint:markdown & mocha tests/ & wait",
+    "test-all": "npm-run-all lint:* mocha",
+    "test-all-parallel": "npm-run-all --parallel lint:* mocha"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,7 @@
     "jsonlint": "^1.6.3",
     "markdownlint-cli": "^0.8.1",
     "mocha": "^5.1.0",
+    "npm-run-all": "^4.1.2",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0"
   }
