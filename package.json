@@ -1,0 +1,20 @@
+{
+  "name": "npm-script-learning",
+  "version": "0.1.0",
+  "description": "Learn to use npm script for efficient workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llp0574/npm-script-learning.git"
+  },
+  "keywords": [],
+  "author": "lilinpu <llp0574@gmail.com> (https://github.com/llp0574)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/llp0574/npm-script-learning/issues"
+  },
+  "homepage": "https://github.com/llp0574/npm-script-learning#readme"
+}
