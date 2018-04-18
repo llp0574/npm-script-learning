@@ -12,9 +12,12 @@
     "lint:markdown": "markdownlint --config .markdownlint.json *.md",
     "pretest": "npm run lint",
     "test": "mocha tests/",
-    "precover": "rm -rf coverage",
     "cover": "nyc --reporter=html npm test",
-    "postcover": "rm -rf .nyc_output && open coverage/index.html"
+    "cover:cleanup": "rm -rf coverage && rm -rf .nyc_output",
+    "cover:archive": "mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version",
+    "cover:serve": "http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
+    "cover:open": "opn http://localhost:$npm_package_config_port",
+    "postcover": "npm-run-all cover:archive cover:cleanup --parallel cover:serve cover:open"
   },
   "repository": {
     "type": "git",
@@ -27,9 +30,13 @@
     "url": "https://github.com/llp0574/npm-script-learning/issues"
   },
   "homepage": "https://github.com/llp0574/npm-script-learning#readme",
+  "config": {
+    "port": 3001
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
+    "http-server": "^0.11.1",
     "jsonlint": "^1.6.3",
     "markdownlint-cli": "^0.8.1",
     "mocha": "^5.1.0",
